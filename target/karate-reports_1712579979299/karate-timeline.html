@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"pool-1-thread-1","id":1},{"content":"pool-1-thread-2","id":2},{"content":"pool-1-thread-3","id":3},{"content":"pool-1-thread-4","id":4}];
+var items = [{"id":1,"group":1,"content":"features\/DeleteBooking\/DeleteBooking[1:7]","start":1711533348604,"end":1711533351500,"title":"features\/DeleteBooking\/DeleteBooking[1:7] 15:25:48.604-15:25:51.500 Delete a booking from Booking List"},{"id":2,"group":2,"content":"features\/GetBooking\/GetBooking[1:6]","start":1711533348604,"end":1711533350302,"title":"features\/GetBooking\/GetBooking[1:6] 15:25:48.604-15:25:50.302 Retrieve the booking for HerokuApp"},{"id":3,"group":3,"content":"features\/postBooking\/postBooking[1:8]","start":1711533348604,"end":1711533350823,"title":"features\/postBooking\/postBooking[1:8] 15:25:48.604-15:25:50.823 Create A booking for Booker HerokuApp"},{"id":4,"group":4,"content":"features\/PutBooking\/PutBooking[1:7]","start":1711533348604,"end":1711533350805,"title":"features\/PutBooking\/PutBooking[1:7] 15:25:48.604-15:25:50.805 Update Booking For A booking id"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
